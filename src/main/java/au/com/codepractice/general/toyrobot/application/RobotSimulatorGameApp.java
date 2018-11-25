@@ -2,6 +2,7 @@ package au.com.codepractice.general.toyrobot.application;
 
 import au.com.codepractice.general.toyrobot.core.commands.Command;
 import au.com.codepractice.general.toyrobot.core.domain.*;
+import au.com.codepractice.general.toyrobot.utils.BoardObjectPlacementUtil;
 import com.google.common.primitives.UnsignedInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,10 @@ public class RobotSimulatorGameApp implements CommandLineRunner {
     @Override
     public void run(String... args) {
         robotSimulatorGame = new RobotSimulatorGame(
-                new GameBoard(new Dimension(UnsignedInteger.valueOf(5), UnsignedInteger.valueOf(5))));
+                new GameBoard(new Dimension(UnsignedInteger.valueOf(5), UnsignedInteger.valueOf(5))),
+                new GameState(),
+                new ToyRobot(),
+                BoardObjectPlacementUtil.getInstance());
 
         processInputFromConsole();
     }
@@ -43,7 +47,7 @@ public class RobotSimulatorGameApp implements CommandLineRunner {
                 break;
             } else {
                 Optional<Command> commandOpt = inputProcessor.translateInputToCommand(inputLine);
-                commandOpt.ifPresent(command -> robotSimulatorGame.addCommand(command));
+                commandOpt.ifPresent(command -> robotSimulatorGame.processCommand(command));
             }
         }
     }
