@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="au.com.codepractice.general.toyrobot.core.domain.GameStateTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-11-25T10:22:57" hostname="C02NXBZKG3QD" time="0.0">
-  <properties/>
-  <testcase name="testToyRobotNotPlaced" classname="au.com.codepractice.general.toyrobot.core.domain.GameStateTest" time="0.0"/>
-  <testcase name="testInitialState" classname="au.com.codepractice.general.toyrobot.core.domain.GameStateTest" time="0.0"/>
-  <testcase name="testToyRobotPlacement" classname="au.com.codepractice.general.toyrobot.core.domain.GameStateTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
