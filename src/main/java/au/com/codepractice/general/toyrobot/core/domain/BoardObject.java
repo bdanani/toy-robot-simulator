@@ -8,4 +8,6 @@ public abstract class BoardObject {
     public final Placement getPlacement(){
         return placement;
     }
+
+    abstract public String getName();
 }

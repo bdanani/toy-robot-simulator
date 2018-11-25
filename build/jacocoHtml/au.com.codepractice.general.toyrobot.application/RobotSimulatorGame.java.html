@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RobotSimulatorGame.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">toy-robot-simulator</a> &gt; <a href="index.source.html" class="el_package">au.com.codepractice.general.toyrobot.application</a> &gt; <span class="el_source">RobotSimulatorGame.java</span></div><h1>RobotSimulatorGame.java</h1><pre class="source lang-java linenums">package au.com.codepractice.general.toyrobot.application;
+
+import au.com.codepractice.general.toyrobot.core.commands.*;
+import au.com.codepractice.general.toyrobot.core.domain.*;
+import au.com.codepractice.general.toyrobot.exceptions.InvalidPlacementException;
+import au.com.codepractice.general.toyrobot.utils.BoardObjectPlacementUtil;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class RobotSimulatorGame {
+<span class="fc" id="L12">    private static final Logger logger = LoggerFactory.getLogger(RobotSimulatorGame.class);</span>
+
+    private final GameBoard gameBoard;
+    private final GameState gameState;
+    private final ToyRobot toyRobot;
+    private final BoardObjectPlacementUtil placementUtil;
+
+
+<span class="fc" id="L20">    public RobotSimulatorGame(GameBoard gameBoard, GameState gameState, ToyRobot toyRobot, BoardObjectPlacementUtil placementUtil) {</span>
+<span class="fc" id="L21">        this.gameBoard = gameBoard;</span>
+<span class="fc" id="L22">        this.gameState = gameState;</span>
+<span class="fc" id="L23">        this.toyRobot = toyRobot;</span>
+<span class="fc" id="L24">        this.placementUtil = placementUtil;</span>
+<span class="fc" id="L25">    }</span>
+
+    public void processCommand(Command command) {
+<span class="fc" id="L28">        CommandResult commandResult = command.apply(gameState);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (commandResult.getPlacement() != null){</span>
+<span class="fc" id="L30">            processCommandWithPlacement(command, commandResult.getPlacement());</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        } else if (StringUtils.isNotEmpty(commandResult.getResultMessage())){</span>
+<span class="fc" id="L32">            logger.info(commandResult.getResultMessage());</span>
+        }
+<span class="fc" id="L34">    }</span>
+
+    private void processCommandWithPlacement(Command command, Placement placement){
+        try {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (command instanceof PlaceObjectCommand) {</span>
+<span class="fc" id="L39">                placementUtil.placeAt(new Obstacle(), gameBoard, gameState, placement);</span>
+            } else {
+<span class="fc" id="L41">                placementUtil.placeAt(toyRobot, gameBoard, gameState, placement);</span>
+            }
+<span class="fc" id="L43">        } catch (InvalidPlacementException e){</span>
+<span class="fc" id="L44">            logger.error(e.getMessage());</span>
+<span class="fc" id="L45">        }</span>
+<span class="fc" id="L46">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

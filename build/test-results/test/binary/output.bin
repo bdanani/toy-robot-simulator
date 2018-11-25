@@ -1,0 +1,34 @@
+)*l21:22:58.145 [Test worker] ERROR au.com.codepractice.general.toyrobot.application.RobotSimulatorGame - null
+)+u21:22:58.177 [Test worker] INFO au.com.codepractice.general.toyrobot.application.RobotSimulatorGame - ROBOT POSITION
+0/
+0/(  .   ____          _            __ _ _
+0/) /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+0/*( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+0/+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+0/*  '  |____| .__|_| |_|_| |_\__, | / / / /
+0/) =========|_|==============|___/=/_/_/_/
+0/+ :: Spring Boot ::        (v1.4.3.RELEASE)
+0/
+0/¥2018-11-25 21:22:58.799  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGameApp        : Starting RobotSimulatorGameApp on C02NXBZKG3QD with PID 9871 (/Users/bob.danani/Downloads/toy-robot-simulator/build/classes/java/main started by bob.danani in /Users/bob.danani/Downloads/toy-robot-simulator)
+0/•2018-11-25 21:22:58.802  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGameApp        : No active profile set, falling back to default profiles: default
+0/ä2018-11-25 21:22:58.864  INFO 9871 --- [pool-1-thread-1] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4fec22b: startup date [Sun Nov 25 21:22:58 AEDT 2018]; root of context hierarchy
+0/Ä2018-11-25 21:22:59.580  INFO 9871 --- [pool-1-thread-1] a.c.c.g.toyrobot.io.ConsoleInputReader   : Initialising Console Reader
+0/e2018-11-25 21:22:59.581  INFO 9871 --- [pool-1-thread-1] a.c.c.g.toyrobot.io.ConsoleInputReader   : 
+0/.Waiting for Input. Type EXIT to end the game.
+0/
+0/í2018-11-25 21:22:59.800  INFO 9871 --- [pool-1-thread-1] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+0/Ñ2018-11-25 21:22:59.817  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Robot is at Location (4,2,EAST)
+0/¥2018-11-25 21:22:59.818 ERROR 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Oops... Cannot move to Position [xPos=5, yPos=2] as it is outside the boundary.
+0/Ö2018-11-25 21:22:59.818  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Robot is at Location (4,3,NORTH)
+0/¬2018-11-25 21:22:59.819 ERROR 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Cannot place TOY ROBOT at position Position [xPos=4, yPos=4]. The position has been occupied.
+0/Ö2018-11-25 21:22:59.819  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Robot is at Location (4,3,NORTH)
+0/´2018-11-25 21:22:59.822  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGameApp        : Started RobotSimulatorGameApp in 1.452 seconds (JVM running for 3.064)
+43|2018-11-25 21:23:01.218  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Empty Commands
+43|2018-11-25 21:23:01.219  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Empty Commands
+43Ä2018-11-25 21:23:01.219  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : 
+46ä2018-11-25 21:23:01.220  INFO 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : PLACE 1,1,
+48Å2018-11-25 21:23:01.220  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Unknown Orientation: INVALID
+49í2018-11-25 21:23:01.221  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : PLACE_OBJECT 1,,,1
+4<â2018-11-25 21:23:01.222  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : LEFT TURN
+4>|2018-11-25 21:23:01.222  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Empty Commands
+4?á2018-11-25 21:23:01.223  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : INVALID

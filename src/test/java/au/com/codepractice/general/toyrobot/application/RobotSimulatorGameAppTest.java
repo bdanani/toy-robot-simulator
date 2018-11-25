@@ -1,22 +1,41 @@
 package au.com.codepractice.general.toyrobot.application;
 
-
-import au.com.codepractice.general.toyrobot.core.commands.Command;
-import au.com.codepractice.general.toyrobot.core.domain.GameBoard;
-import au.com.codepractice.general.toyrobot.core.domain.ToyRobot;
 import org.junit.Test;
-import org.mockito.Mockito;
+import java.io.ByteArrayInputStream;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class RobotSimulatorGameAppTest {
 
-    /*
     @Test
-    public void testAddCommand(){
-        GameBoard gameBoard = Mockito.mock(GameBoard.class);
-        ToyRobot toyRobot = Mockito.mock(ToyRobot.class);
-        Command command = Mockito.mock(Command.class);
-        RobotSimulatorGame robotSimulatorGame = new RobotSimulatorGame(gameBoard, toyRobot);
-        robotSimulatorGame.addCommand(command);
+    public void testGame() throws InterruptedException{
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(() -> RobotSimulatorGameApp.main(new String[0]));
+
+        String input = "PLACE 1,1,NORTH\n" +
+                "MOVE\n" +
+                "RIGHT\n" +
+                "MOVE\n" +
+                "MOVE\n" +
+                "MOVE\n" +
+                "REPORT\n" +
+                "MOVE\n" +
+                "LEFT\n" +
+                "MOVE\n" +
+                "REPORT\n" +
+                "PLACE_OBJECT 4,4\n" +
+                "MOVE\n" +
+                "REPORT\n" +
+                "EXIT\n";
+
+        simulateUserInput(input);
+        executorService.awaitTermination(3000L, TimeUnit.MILLISECONDS);
     }
-    */
+
+
+    private void simulateUserInput(String inputLine) {
+        inputLine = inputLine + "\n";
+        System.setIn(new ByteArrayInputStream(inputLine.getBytes()));
+    }
 }

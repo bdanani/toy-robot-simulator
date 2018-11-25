@@ -14,6 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputProcessor {
+    private static final String EXIT   = "EXIT";
     private static final String LEFT   = "LEFT";
     private static final String RIGHT  = "RIGHT";
     private static final String MOVE   = "MOVE";
@@ -49,16 +50,24 @@ public class InputProcessor {
                 return Optional.of(new MoveCommand());
             case REPORT:
                 return Optional.of(new ReportCommand());
+            case EXIT:
+                return Optional.of(new ExitCommand());
             default:
-                String inputFirstWord = inputLine.split(" ")[0];
-                if (PLACE_OBJECT.equals(inputFirstWord)){
-                    return processPlaceObjectCommand(inputLine);
-                } else if (PLACE.equals(inputFirstWord)){
-                    return processPlaceCommand(inputLine);
-                } else {
-                    logger.warn("Ignoring Invalid Command : " + inputLine);
-                    return Optional.empty();
-                }
+                return processMultiWordCommand(inputLine);
+        }
+    }
+
+
+    private static Optional<Command> processMultiWordCommand(String inputLine){
+        String inputFirstWord = inputLine.split(" ")[0];
+
+        if (PLACE_OBJECT.equals(inputFirstWord)){
+            return processPlaceObjectCommand(inputLine);
+        } else if (PLACE.equals(inputFirstWord)){
+            return processPlaceCommand(inputLine);
+        } else {
+            logger.warn("Ignoring Invalid Command : " + inputLine);
+            return Optional.empty();
         }
     }
 
@@ -74,16 +83,20 @@ public class InputProcessor {
 
     private static Placement parsePlaceObjectCommand(String placeObjectCommandString) {
         Matcher matcher = Pattern.compile(PLACE_OBJECT + "(\\s+)(\\d+),(\\d+)").matcher(placeObjectCommandString);
+
         if (matcher.matches()) {
             Position position = new Position(Integer.parseInt(matcher.group(2)), Integer.parseInt(matcher.group(3)));
             return new Placement(position, Orientation.defaultOrientation());
         }
+
         logger.warn("Ignoring Invalid Command : " + placeObjectCommandString);
         return null;
     }
 
+
     private static Optional<Command> processPlaceCommand(String placeCommandString){
         Placement placement = parsePlaceCommand(placeCommandString);
+
         if (placement != null) {
             return Optional.of(new PlaceCommand(placement));
         } else {

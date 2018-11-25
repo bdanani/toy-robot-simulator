@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BoardObjectPlacementUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">toy-robot-simulator</a> &gt; <a href="index.source.html" class="el_package">au.com.codepractice.general.toyrobot.utils</a> &gt; <span class="el_source">BoardObjectPlacementUtil.java</span></div><h1>BoardObjectPlacementUtil.java</h1><pre class="source lang-java linenums">package au.com.codepractice.general.toyrobot.utils;
+
+import au.com.codepractice.general.toyrobot.core.domain.*;
+import au.com.codepractice.general.toyrobot.exceptions.InvalidPlacementException;
+
+public class BoardObjectPlacementUtil {
+    private static BoardObjectPlacementUtil INSTANCE;
+
+    private BoardObjectPlacementUtil(){
+        // Private constructor
+    }
+
+    public static BoardObjectPlacementUtil getInstance(){
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (INSTANCE == null){</span>
+<span class="fc" id="L15">            INSTANCE = new BoardObjectPlacementUtil();</span>
+        }
+<span class="fc" id="L17">        return INSTANCE;</span>
+    }
+
+    public void placeAt(BoardObject boardObject, GameBoard gameBoard, GameState gameState, Placement placement) throws InvalidPlacementException{
+<span class="fc bfc" id="L21" title="All 4 branches covered.">        if (gameBoard.isPositionAlreadyOccupied(placement.getPosition()) &amp;&amp; !(gameBoard.boardObjectAtPosition(placement.getPosition()).equals(boardObject))) {</span>
+<span class="fc" id="L22">            throw new InvalidPlacementException(String.format(&quot;Cannot place %s at position %s. The position has been occupied.&quot;,</span>
+<span class="fc" id="L23">                    boardObject.getName(), placement.getPosition().toString()));</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        } else if (! gameBoard.isPositionWithinBounds(placement.getPosition())) {</span>
+
+<span class="fc" id="L26">            throw new InvalidPlacementException(String.format(&quot;Oops... Cannot move to %s as it is outside the boundary.&quot;, placement.getPosition().toString()));</span>
+
+        } else {
+<span class="fc" id="L29">            placeBasedOnObjectType(boardObject, gameBoard, gameState, placement);</span>
+        }
+<span class="fc" id="L31">    }</span>
+
+    private void placeBasedOnObjectType(BoardObject boardObject, GameBoard gameBoard, GameState gameState, Placement placement){
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (boardObject instanceof ToyRobot) {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            if (gameState.getToyRobotPlacement() != null) {</span>
+<span class="fc" id="L36">                gameBoard.clearBoardObjectAtPosition(gameState.getToyRobotPlacement().getPosition());</span>
+            }
+<span class="fc" id="L38">            gameState.setToyRobotPlacement(placement);</span>
+        }
+
+<span class="fc" id="L41">        boardObject.setPlacement(placement);</span>
+<span class="fc" id="L42">        gameBoard.placeBoardObjectAtPosition(placement.getPosition(), boardObject);</span>
+<span class="fc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

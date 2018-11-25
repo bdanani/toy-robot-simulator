@@ -18,11 +18,9 @@ public class BoardObjectPlacementUtil {
     }
 
     public void placeAt(BoardObject boardObject, GameBoard gameBoard, GameState gameState, Placement placement) throws InvalidPlacementException{
-        if (gameBoard.isPositionAlreadyOccupied(placement.getPosition())) {
-
-            throw new InvalidPlacementException(String.format("Failed to place %s on position %s. The position has been used",
-                    boardObject.getClass().getName(), placement.getPosition().toString()));
-
+        if (gameBoard.isPositionAlreadyOccupied(placement.getPosition()) && !(gameBoard.boardObjectAtPosition(placement.getPosition()).equals(boardObject))) {
+            throw new InvalidPlacementException(String.format("Cannot place %s at position %s. The position has been occupied.",
+                    boardObject.getName(), placement.getPosition().toString()));
         } else if (! gameBoard.isPositionWithinBounds(placement.getPosition())) {
 
             throw new InvalidPlacementException(String.format("Oops... Cannot move to %s as it is outside the boundary.", placement.getPosition().toString()));

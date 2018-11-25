@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="au.com.codepractice.general.toyrobot.application.InputProcessorTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2018-11-25T10:23:01" hostname="C02NXBZKG3QD" time="0.005">
+  <properties/>
+  <testcase name="testEmptyInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.001"/>
+  <testcase name="testExitCommand" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testInvalidPlaceCommandInputWithEmptyOrientation" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.001"/>
+  <testcase name="testReportCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testInvalidPlaceCommandInputWithInvalidOrientation" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.001"/>
+  <testcase name="testInvalidPlaceObjectCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testPlaceCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testLeftCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testInvalidMultiWordCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testPlaceObjectCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testEmptyCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.001"/>
+  <testcase name="testInvalidCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testRightCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <testcase name="testMoveCommandInput" classname="au.com.codepractice.general.toyrobot.application.InputProcessorTest" time="0.0"/>
+  <system-out><![CDATA[2018-11-25 21:23:01.218  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Empty Commands
+2018-11-25 21:23:01.219  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Empty Commands
+2018-11-25 21:23:01.219  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : 
+2018-11-25 21:23:01.220  INFO 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : PLACE 1,1,
+2018-11-25 21:23:01.220  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Unknown Orientation: INVALID
+2018-11-25 21:23:01.221  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : PLACE_OBJECT 1,,,1
+2018-11-25 21:23:01.222  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : LEFT TURN
+2018-11-25 21:23:01.222  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Empty Commands
+2018-11-25 21:23:01.223  WARN 9871 --- [    Test worker] a.c.c.g.t.application.InputProcessor     : Ignoring Invalid Command : INVALID
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

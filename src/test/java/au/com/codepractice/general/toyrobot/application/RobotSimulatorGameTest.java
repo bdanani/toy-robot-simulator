@@ -97,4 +97,17 @@ public class RobotSimulatorGameTest {
         verify(placementUtil, times(1)).placeAt(obstacleArgumentCaptor.capture(), gameboardCaptor.capture(), gameStateCaptor.capture(), placementCaptor.capture());
         Assert.assertTrue(obstacleArgumentCaptor.getValue() instanceof Obstacle);
     }
+
+    @Test
+    public void testInvalidPlacement() throws InvalidPlacementException {
+        setupTestFixture();
+        RobotSimulatorGame simulatorGame = new RobotSimulatorGame(gameBoard, gameState, toyRobot, placementUtil);
+        Command command = Mockito.mock(Command.class);
+        InvalidPlacementException invalidPlacementException = Mockito.mock(InvalidPlacementException.class);
+
+        when(command.apply(gameState)).thenReturn(new CommandResult(placement));
+        doThrow(invalidPlacementException).when(placementUtil).placeAt(toyRobot, gameBoard, gameState, placement);
+        simulatorGame.processCommand(command);
+        verify(invalidPlacementException, times(1)).getMessage();
+    }
 }

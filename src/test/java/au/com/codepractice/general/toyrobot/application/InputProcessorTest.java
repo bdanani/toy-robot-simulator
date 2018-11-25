@@ -133,5 +133,13 @@ public class InputProcessorTest {
         Assert.assertFalse(commandOpt.isPresent());
     }
 
+    @Test
+    public void testExitCommand() {
+        InputProcessor inputProcessor = new InputProcessor();
+        Optional<Command> commandOpt = inputProcessor.translateInputToCommand("EXIT");
+        Assert.assertTrue(commandOpt.isPresent());
+        Assert.assertTrue(commandOpt.get() instanceof ExitCommand);
+    }
+
     
 }

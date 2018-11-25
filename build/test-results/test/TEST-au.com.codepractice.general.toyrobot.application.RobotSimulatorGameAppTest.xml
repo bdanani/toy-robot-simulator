@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="au.com.codepractice.general.toyrobot.application.RobotSimulatorGameAppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-11-25T10:22:58" hostname="C02NXBZKG3QD" time="3.004">
+  <properties/>
+  <testcase name="testGame" classname="au.com.codepractice.general.toyrobot.application.RobotSimulatorGameAppTest" time="3.004"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.4.3.RELEASE)
+
+2018-11-25 21:22:58.799  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGameApp        : Starting RobotSimulatorGameApp on C02NXBZKG3QD with PID 9871 (/Users/bob.danani/Downloads/toy-robot-simulator/build/classes/java/main started by bob.danani in /Users/bob.danani/Downloads/toy-robot-simulator)
+2018-11-25 21:22:58.802  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGameApp        : No active profile set, falling back to default profiles: default
+2018-11-25 21:22:58.864  INFO 9871 --- [pool-1-thread-1] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4fec22b: startup date [Sun Nov 25 21:22:58 AEDT 2018]; root of context hierarchy
+2018-11-25 21:22:59.580  INFO 9871 --- [pool-1-thread-1] a.c.c.g.toyrobot.io.ConsoleInputReader   : Initialising Console Reader
+2018-11-25 21:22:59.581  INFO 9871 --- [pool-1-thread-1] a.c.c.g.toyrobot.io.ConsoleInputReader   : 
+Waiting for Input. Type EXIT to end the game.
+
+2018-11-25 21:22:59.800  INFO 9871 --- [pool-1-thread-1] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-25 21:22:59.817  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Robot is at Location (4,2,EAST)
+2018-11-25 21:22:59.818 ERROR 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Oops... Cannot move to Position [xPos=5, yPos=2] as it is outside the boundary.
+2018-11-25 21:22:59.818  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Robot is at Location (4,3,NORTH)
+2018-11-25 21:22:59.819 ERROR 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Cannot place TOY ROBOT at position Position [xPos=4, yPos=4]. The position has been occupied.
+2018-11-25 21:22:59.819  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGame           : Robot is at Location (4,3,NORTH)
+2018-11-25 21:22:59.822  INFO 9871 --- [pool-1-thread-1] a.c.c.g.t.a.RobotSimulatorGameApp        : Started RobotSimulatorGameApp in 1.452 seconds (JVM running for 3.064)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

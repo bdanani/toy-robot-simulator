@@ -4,6 +4,7 @@ import au.com.codepractice.general.toyrobot.core.domain.*;
 import au.com.codepractice.general.toyrobot.exceptions.InvalidPlacementException;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -64,6 +65,7 @@ public class BoardObjectPlacementUtilTest {
         // WHEN
         Mockito.when(gameState.getToyRobotPlacement()).thenReturn(currentPlacement);
         Mockito.when(gameBoard.isPositionAlreadyOccupied(newPlacement.getPosition())).thenReturn(true);
+        Mockito.when(gameBoard.boardObjectAtPosition(newPlacement.getPosition())).thenReturn(new Obstacle());
 
         BoardObjectPlacementUtil.getInstance().placeAt(toyRobot, gameBoard, gameState, newPlacement);
     }
