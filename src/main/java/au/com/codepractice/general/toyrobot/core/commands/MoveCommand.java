@@ -3,6 +3,7 @@ package au.com.codepractice.general.toyrobot.core.commands;
 import au.com.codepractice.general.toyrobot.core.domain.GameState;
 import au.com.codepractice.general.toyrobot.core.domain.Placement;
 import au.com.codepractice.general.toyrobot.core.domain.Position;
+import lombok.Generated;
 
 public class MoveCommand implements Command {
 
@@ -31,11 +32,13 @@ public class MoveCommand implements Command {
         return new Placement(position, placement.getOrientation());
     }
 
+    @Generated
     @Override
     public int hashCode() {
         return super.hashCode();
     }
 
+    @Generated
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);

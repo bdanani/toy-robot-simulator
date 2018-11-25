@@ -1,6 +1,7 @@
 package au.com.codepractice.general.toyrobot.core.commands;
 
 import au.com.codepractice.general.toyrobot.core.domain.*;
+import lombok.Generated;
 
 import java.util.Objects;
 
@@ -30,6 +31,7 @@ public class TurnDirectionCommand implements Command  {
         return new Placement(position, newOrientation);
     }
 
+    @Generated
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,6 +40,7 @@ public class TurnDirectionCommand implements Command  {
         return direction == that.direction;
     }
 
+    @Generated
     @Override
     public int hashCode() {
         return Objects.hash(direction);

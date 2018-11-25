@@ -37,7 +37,7 @@ public class GameBoard {
             boardObjects.put(position, boardObject);
     }
 
-    private BoardObject boardObjectAtPosition(Position position) {
+    public BoardObject boardObjectAtPosition(Position position) {
         return boardObjects.get(position);
     }
 
