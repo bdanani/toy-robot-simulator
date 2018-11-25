@@ -1,16 +1,87 @@
-plugins {
-    id 'java'
-}
-
 group 'bdanani-codes'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+buildscript {
+    // In this section you declare where to find the dependencies of your project
+    repositories {
+        jcenter()
+        maven { url 'https://repo.spring.io/libs-snapshot' }
+    }
 
-repositories {
-    mavenCentral()
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+    }
 }
 
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+apply plugin: 'jacoco'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    baseName = 'toy-robot-simulator'
+    version = '0.1.0'
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+
+// In this section you declare the dependencies for your production and test code
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.slf4j:slf4j-api:1.7.18'
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile "org.springframework.boot:spring-boot-starter"
+    compile 'com.google.guava:guava:27.0-jre'
+    compile 'ch.qos.logback:logback-classic:1.1.10'
+
+
+    // PROJECT LOMBOK PLUGIN TO ANNOTATE CLASS + WORK WITH JACOCO
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    testCompile ('junit:junit:4.12') {
+        exclude group : 'org.hamcrest'
+    }
+
+    testCompile 'org.apache.commons:commons-lang3:3.0'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+
+    testRuntime 'org.pegdown:pegdown:1.2.1'
+}
+
+springBoot  {
+    buildInfo()
+}
+
+
+test {
+    testLogging{
+        events "passed", "skipped", "failed"
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['**/exceptions/**'])
+        })
+    }
 }
